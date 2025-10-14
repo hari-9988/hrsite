@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Redirect Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        
+        .timer-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+        
+        .timer {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .redirect-message {
+            font-size: 1.3rem;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        
+        .skip-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+        
+        .skip-btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 200px;
+            margin: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .timer {
+                font-size: 3rem;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Platform</h1>
+        <p>We're redirecting you to our main website in just a few seconds. Please wait...</p>
+        
+        <div class="timer-container">
+            <h2>Redirecting in:</h2>
+            <div class="timer" id="countdown">10</div>
+            <div class="redirect-message">
+                You will be automatically redirected to our main website
+            </div>
+        </div>
+        
+        <button class="skip-btn" onclick="redirectNow()">
+            Skip Waiting - Go Now
+        </button>
+        
+        <div class="features">
+            <div class="feature">
+                <i>🚀</i>
+                <h3>Fast Performance</h3>
+                <p>Lightning-fast loading times and smooth user experience</p>
+            </div>
+            <div class="feature">
+                <i>🔒</i>
+                <h3>Secure & Safe</h3>
+                <p>Your data is protected with industry-leading security</p>
+            </div>
+            <div class="feature">
+                <i>💡</i>
+                <h3>Innovative Solutions</h3>
+                <p>Cutting-edge technology for modern challenges</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the countdown time in seconds
+        let countdownTime = 01;
+        const countdownElement = document.getElementById('countdown');
+        
+        // Update the countdown every second
+        const countdownInterval = setInterval(function() {
+            countdownTime--;
+            countdownElement.textContent = countdownTime;
+            
+            // When countdown reaches 0, redirect
+            if (countdownTime <= 0) {
+                clearInterval(countdownInterval);
+                redirectNow();
+            }
+        }, 1000);
+        
+        // Function to redirect immediately
+        function redirectNow() {
+            // Replace with your target website URL
+            window.location.href = "https://www.hrnews.shop";
+        }
+    </script>
+</body>
+</html>
