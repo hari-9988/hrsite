@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIMAOND Services | Travel & Tour Packages</title>
+    <meta
+      name="description"
+      content="DIMAOND Services offers travel planning, holiday tour packages, honeymoon trips, family tours, and custom itineraries with quick WhatsApp enquiry."
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <style>
+      :root {
+        --ink: #17211f;
+        --muted: #5e6d68;
+        --paper: #fbfaf6;
+        --white: #ffffff;
+        --teal: #087b73;
+        --teal-dark: #045c56;
+        --coral: #ee6b4d;
+        --gold: #d49a38;
+        --line: rgba(23, 33, 31, 0.14);
+        --shadow: 0 22px 60px rgba(23, 33, 31, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 16px clamp(18px, 5vw, 72px);
+        color: var(--white);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0));
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        display: grid;
+        flex: 0 0 38px;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.72);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(8px);
+      }
+
+      .brand span:last-child {
+        overflow-wrap: anywhere;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(12px, 2vw, 28px);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.94rem;
+        font-weight: 700;
+      }
+
+      .hero {
+        min-height: 92vh;
+        display: grid;
+        align-items: end;
+        padding: 130px clamp(18px, 5vw, 72px) 60px;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(5, 20, 18, 0.78), rgba(5, 20, 18, 0.32) 52%, rgba(5, 20, 18, 0.6)),
+          url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85") center/cover;
+      }
+
+      .hero-inner {
+        width: min(980px, 100%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        color: #f7e3bd;
+        font-size: 0.88rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 3px;
+        background: var(--gold);
+      }
+
+      h1 {
+        max-width: 900px;
+        margin: 0;
+        font-size: clamp(3.05rem, 8vw, 7.6rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.06rem, 2vw, 1.32rem);
+        line-height: 1.6;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 14px 20px;
+        border: 0;
+        border-radius: 8px;
+        font-weight: 900;
+        line-height: 1;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-whatsapp {
+        color: var(--white);
+        background: #19a45b;
+        box-shadow: 0 14px 34px rgba(25, 164, 91, 0.3);
+      }
+
+      .btn-whatsapp:hover {
+        background: #128c4d;
+      }
+
+      .btn-light {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .section {
+        padding: clamp(56px, 8vw, 104px) clamp(18px, 5vw, 72px);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1180px, 100%);
+        margin: 0 auto 32px;
+      }
+
+      .section-head h2 {
+        max-width: 700px;
+        margin: 0;
+        font-size: clamp(2rem, 4.2vw, 4rem);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .section-head p {
+        max-width: 420px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .service {
+        min-height: 245px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 10px 30px rgba(23, 33, 31, 0.06);
+      }
+
+      .service-icon {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 28px;
+        color: var(--teal);
+      }
+
+      .service h3 {
+        margin: 0 0 10px;
+        font-size: 1.15rem;
+      }
+
+      .service p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .mini-link {
+        color: var(--teal-dark);
+        font-weight: 900;
+      }
+
+      .destinations {
+        background: #e9f2ed;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .package {
+        overflow: hidden;
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .package img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .package-body {
+        padding: 22px;
+      }
+
+      .tag {
+        color: var(--coral);
+        font-size: 0.78rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .package h3 {
+        margin: 8px 0 10px;
+        font-size: 1.45rem;
+      }
+
+      .package p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.58;
+      }
+
+      .band {
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(4, 58, 54, 0.94), rgba(4, 58, 54, 0.7)),
+          url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1800&q=85") center/cover;
+      }
+
+      .band-inner {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: center;
+        gap: 32px;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .band h2 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5vw, 5.2rem);
+        line-height: 0.98;
+        text-transform: uppercase;
+      }
+
+      .band p {
+        margin: 18px 0 0;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 1.1rem;
+        line-height: 1.65;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .step {
+        padding: 26px;
+        border-top: 5px solid var(--teal);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .step strong {
+        color: var(--gold);
+        font-size: 2rem;
+      }
+
+      .step h3 {
+        margin: 18px 0 8px;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .contact-strip {
+        position: sticky;
+        bottom: 0;
+        z-index: 15;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 12px 18px;
+        color: var(--white);
+        background: rgba(4, 58, 54, 0.96);
+        box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.18);
+      }
+
+      .contact-strip p {
+        margin: 0;
+        font-weight: 800;
+      }
+
+      footer {
+        padding: 34px clamp(18px, 5vw, 72px) 90px;
+        color: rgba(255, 255, 255, 0.8);
+        background: #17211f;
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        right: 18px;
+        bottom: 78px;
+        z-index: 30;
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--white);
+        background: #19a45b;
+        box-shadow: 0 18px 38px rgba(25, 164, 91, 0.38);
+      }
+
+      svg {
+        flex: 0 0 auto;
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: 88vh;
+          padding-top: 110px;
+        }
+
+        .section-head,
+        .band-inner,
+        .footer-inner {
+          display: block;
+        }
+
+        .section-head p,
+        .band p {
+          margin-top: 16px;
+        }
+
+        .services,
+        .package-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .service {
+          min-height: auto;
+        }
+
+        .contact-strip {
+          align-items: stretch;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact-strip .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="DIMAOND Services home">
+        <span class="brand-mark">DS</span>
+        <span>DIMAOND Services</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#process">How it works</a>
+        <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="eyebrow">Travel, tours, holidays</div>
+          <h1>DIMAOND Services</h1>
+          <p class="hero-copy">
+            Plan your next trip with fast WhatsApp support for tour packages, family holidays, honeymoon trips,
+            weekend getaways, hotel bookings, and custom travel plans.
+          </p>
+          <div class="actions">
+            <a class="btn btn-whatsapp js-whatsapp" href="#">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12.04 2.5A9.42 9.42 0 0 0 3.9 16.65L2.7 21.5l4.98-1.13A9.45 9.45 0 1 0 12.04 2.5Zm5.5 13.5c-.23.65-1.3 1.22-1.84 1.3-.5.07-1.13.1-1.82-.12-.42-.13-.95-.31-1.63-.6-2.86-1.23-4.73-4.12-4.87-4.31-.14-.2-1.16-1.55-1.16-2.96 0-1.4.73-2.1.99-2.38.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.25.6.84 2.05.91 2.2.07.14.12.32.02.51-.1.2-.15.32-.29.5-.14.17-.3.39-.43.52-.14.14-.29.29-.12.57.17.28.75 1.24 1.6 2 .11.1.23.2.35.3.76.64 1.4.84 1.68.98.28.14.45.12.62-.07.17-.2.71-.83.9-1.12.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.7-.16 1.35Z" fill="currentColor" />
+              </svg>
+              WHATSAPP NOW
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-head">
+          <h2>Travel services for every kind of trip</h2>
+          <p>Send one WhatsApp message and get help choosing destinations, dates, hotels, transport, and full tour plans.</p>
+        </div>
+        <div class="services">
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M8 31 40 12l-8 29-8-12-9 8 2-11-9 5Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+            </svg>
+            <h3>Tour Packages</h3>
+            <p>Ready-made and custom packages for families, couples, groups, and solo travellers.</p>
+            <a class="mini-link js-whatsapp" href="#">WHATSAPP NOW</a>
+          </article>
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M10 38h28M14 38V18l10-8 10 8v20M20 38V27h8v11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h3>Hotel Booking</h3>
+            <p>Stay options matched to your budget, location, comfort level, and travel plan.</p>
+            <a class="mini-link js-whatsapp" href="#">WHATSAPP NOW</a>
+          </article>
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M11 33h26l4 7H7l4-7Zm4 0 4-22h10l4 22M18 18h12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h3>Transport</h3>
+            <p>Cab, bus, train, and flight assistance for smooth movement across your journey.</p>
+            <a class="mini-link js-whatsapp" href="#">WHATSAPP NOW</a>
+          </article>
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 42s15-12.1 15-25A15 15 0 0 0 9 17c0 12.9 15 25 15 25Zm0-19a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+            </svg>
+            <h3>Custom Itinerary</h3>
+            <p>Tell us your dates, budget, and dream destination. We prepare a practical route.</p>
+            <a class="mini-link js-whatsapp" href="#">WHATSAPP NOW</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section destinations" id="packages">
+        <div class="section-head">
+          <h2>Popular tour packages</h2>
+          <p>Start with a package below or message us for a fully customized holiday quote.</p>
+        </div>
+        <div class="package-grid">
+          <article class="package">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=85" alt="Taj Mahal travel package" />
+            <div class="package-body">
+              <span class="tag">India tours</span>
+              <h3>North India Heritage</h3>
+              <p>Delhi, Agra, Jaipur, local sightseeing, hotels, transfers, and flexible day plans.</p>
+              <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+            </div>
+          </article>
+          <article class="package">
+            <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=900&q=85" alt="Beach holiday package" />
+            <div class="package-body">
+              <span class="tag">Beach holidays</span>
+              <h3>Goa Getaway</h3>
+              <p>Beach stays, sightseeing, nightlife, family-friendly plans, and couple packages.</p>
+              <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+            </div>
+          </article>
+          <article class="package">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Mountain tour package" />
+            <div class="package-body">
+              <span class="tag">Hill stations</span>
+              <h3>Mountains & Nature</h3>
+              <p>Scenic stays, private transport, viewpoints, adventure activities, and relaxed routes.</p>
+              <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="band-inner">
+          <div>
+            <h2>Need a quick travel quote?</h2>
+            <p>Share your destination, number of travellers, dates, and budget on WhatsApp. We will guide you with suitable tour options.</p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-head">
+          <h2>Simple booking process</h2>
+          <p>Everything starts on WhatsApp so customers can ask questions and get details quickly.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <strong>01</strong>
+            <h3>Message us</h3>
+            <p>Send destination, travel dates, number of people, and preferred budget.</p>
+          </article>
+          <article class="step">
+            <strong>02</strong>
+            <h3>Get options</h3>
+            <p>Receive package suggestions with hotels, route, transport, and estimated pricing.</p>
+          </article>
+          <article class="step">
+            <strong>03</strong>
+            <h3>Confirm trip</h3>
+            <p>Finalize the best plan and get support until your journey is completed.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <a class="whatsapp-float js-whatsapp" href="#" aria-label="Chat on WhatsApp">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12.04 2.5A9.42 9.42 0 0 0 3.9 16.65L2.7 21.5l4.98-1.13A9.45 9.45 0 1 0 12.04 2.5Zm5.5 13.5c-.23.65-1.3 1.22-1.84 1.3-.5.07-1.13.1-1.82-.12-.42-.13-.95-.31-1.63-.6-2.86-1.23-4.73-4.12-4.87-4.31-.14-.2-1.16-1.55-1.16-2.96 0-1.4.73-2.1.99-2.38.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.66.5.25.6.84 2.05.91 2.2.07.14.12.32.02.51-.1.2-.15.32-.29.5-.14.17-.3.39-.43.52-.14.14-.29.29-.12.57.17.28.75 1.24 1.6 2 .11.1.23.2.35.3.76.64 1.4.84 1.68.98.28.14.45.12.62-.07.17-.2.71-.83.9-1.12.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.7-.16 1.35Z" fill="currentColor" />
+      </svg>
+    </a>
+
+    <aside class="contact-strip" aria-label="WhatsApp contact">
+      <p>Ready to plan your trip with DIMAOND Services?</p>
+      <a class="btn btn-whatsapp js-whatsapp" href="#">WHATSAPP NOW</a>
+    </aside>
+
+    <footer>
+      <div class="footer-inner">
+        <strong>DIMAOND Services</strong>
+        <span>Travel packages, tour planning, hotels, transport, and custom itineraries.</span>
+      </div>
+    </footer>
+
+    <!-- Replace AW-XXXXXXXXXX/YYYYYYYYYYYYYYYYYYY with your Google Ads conversion ID and label. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18045581154"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-18045581154");
+
+      function gtag_report_whatsapp_conversion(url) {
+        const callback = function () {
+          if (typeof url !== "undefined") {
+            window.open(url, "_blank", "noopener");
+          }
+        };
+
+        if (typeof gtag === "function") {
+          gtag("event", "conversion", {
+            send_to: "AW-18045581154/IHu8CMTYoJ4cEOLu5pxD",
+            event_callback: callback,
+          });
+        } else {
+          callback();
+        }
+
+        return false;
+      }
+    </script>
+
+    <script>
+      const whatsappUrl = "https://Wa.link/aygoogledrd9";
+
+      document.querySelectorAll(".js-whatsapp").forEach((link) => {
+        link.href = whatsappUrl;
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          gtag_report_whatsapp_conversion(whatsappUrl);
+        });
+      });
+    </script>
+  </body>
+</html>
