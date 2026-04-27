@@ -623,7 +623,35 @@
         <span>Travel packages, tour planning, hotels, transport, and custom itineraries.</span>
       </div>
     </footer>
+<!-- Replace AW-XXXXXXXXXX/YYYYYYYYYYYYYYYYYYY with your Google Ads conversion ID and label. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18045581154"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-18045581154");
 
+      function gtag_report_whatsapp_conversion(url) {
+        const callback = function () {
+          if (typeof url !== "undefined") {
+            window.open(url, "_blank", "noopener");
+          }
+        };
+
+        if (typeof gtag === "function") {
+          gtag("event", "conversion", {
+            send_to: "AW-18045581154/IHu8CMTYoJ4cEOLu5pxD",
+            event_callback: callback,
+          });
+        } else {
+          callback();
+        }
+
+        return false;
+      }
+    </script>
    
     <script>
       const whatsappUrl = "https://wa.link/k5vifu";
